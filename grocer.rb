@@ -40,6 +40,8 @@ def consolidate_cart(cart)
     temp_cart[i][:count] = 1
     i+=1
   end #while
+  puts "temp cart:"
+  pp temp_cart
   
   updated_cart = []
   i=0
