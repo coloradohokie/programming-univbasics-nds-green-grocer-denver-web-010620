@@ -23,27 +23,38 @@ def find_match(key, array)
   nil
 end
 
+
+def add_count_key(temp_cart)
+    i=0
+  while i < temp_cart.length do
+    temp_cart[i][:count] = 1
+    i+=1
+  end #while
+  return temp_cart
+end #method
+
 def consolidate_cart(cart)
   # cart is an AoH like this: [index]{:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3}
   # note that :count key may or may not exist. if it doesn't exist, count =1
   # returns and updated cart AoH
   
+
+  temp_cart = add_count_key(cart)
   updated_cart = []
   i=0
-  while i < cart.length do
-    if !find_match(cart[i][:name], updated_cart)
-      updated_cart << cart[i]
-      updated_cart[-1][:count] = 1
-
-    else
-      k=0
-      while k < updated_cart.length do
-        if updated_cart[k][:name] == cart[i][:name]
-          updated_cart[k][:count] += 1
-        end #if
-        k+=1
-      end #k while
-    end #if/else
+  while i < temp_cart.length do
+    flag = false
+    k=0
+    while k < updated_cart.length do
+      if updated_cart[k][:name] == temp_cart[i][:name]
+        updated_cart[k][:count] += 1
+        flag = true #match found and added
+      end #if statement
+      k+=1
+    end #k while
+    if !flag
+      updated_cart << temp_cart[i] #no match found so add to end of array
+    end #if statement
     i+=1
   end #i while
   return updated_cart
