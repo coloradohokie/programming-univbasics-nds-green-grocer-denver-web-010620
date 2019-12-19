@@ -57,6 +57,8 @@ def consolidate_cart(cart)
     end #if statement
     i+=1
   end #i while
+  puts "updated cart:"
+  pp updated_cart
   return updated_cart
 end #method
     
