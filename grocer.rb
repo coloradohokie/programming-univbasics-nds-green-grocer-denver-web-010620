@@ -33,7 +33,7 @@ def consolidate_cart(cart)
   while i < cart.length do
     if !find_match(cart[i][:name], updated_cart)
       updated_cart << cart[i]
-      updated_cart.[-1][:count] = 1
+      updated_cart[-1][:count] = 1
 
     else
       k=0
