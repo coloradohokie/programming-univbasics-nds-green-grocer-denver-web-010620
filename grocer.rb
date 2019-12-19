@@ -13,15 +13,6 @@ def find_item_by_name_in_collection(name, collection)
 end
 
 
-def find_match(key, array)
-  i=0
-  while i < array.length do
-    if array[i][:name] == key
-      return true
-    end #if
-  end #while
-  nil
-end
 
 
 def add_count_key(temp_cart)
@@ -40,9 +31,7 @@ def consolidate_cart(cart)
     temp_cart[i][:count] = 1
     i+=1
   end #while
-  puts "temp cart:"
-  pp temp_cart
-  
+
   updated_cart = []
   i=0
   while i < temp_cart.length do
@@ -60,8 +49,6 @@ def consolidate_cart(cart)
     end #if statement
     i+=1
   end #i while
-  puts "updated cart:"
-  pp updated_cart
   return updated_cart
 end #method
     
@@ -139,13 +126,7 @@ def checkout(cart, coupons)
   # desc: consolidate the cart, then apply coupons, then discount the clearance items, then calculate the cart total, including a volume discount if the cart total > 100.
   #return the total after coupons, clearance and volume discount is applied.
   
-  puts "coupons:"
-  pp coupons
-  puts "initial cart:"
-  pp cart
   updated_cart = consolidate_cart(cart)
-  puts "updated cart:"
-  pp updated_cart
   if coupons
     updated_cart = apply_coupons(updated_cart, coupons)
   end #if coupons
