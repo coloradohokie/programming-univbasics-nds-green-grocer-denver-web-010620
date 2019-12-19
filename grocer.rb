@@ -19,7 +19,7 @@ def consolidate_cart(cart)
   # cart is an AoH like this: [index]{:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3}
   # note that :count key may or may not exist. if it doesn't exist, count =1
   # returns and updated cart AoH
-  
+=begin  
   temp_cart = cart 
   # need to add temp cart because I cannot touch original cart and I need to add the count key to items that don't have it.
   updated_cart = []
@@ -46,7 +46,7 @@ def consolidate_cart(cart)
   end # i while loop
   return updated_cart
 end #method
-  
+=end  
 
 
 
