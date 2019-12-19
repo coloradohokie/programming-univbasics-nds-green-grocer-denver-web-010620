@@ -28,6 +28,8 @@ def consolidate_cart(cart)
     if !temp_cart[i][:count]
       temp_cart[i][:count] = 1
     end
+    puts "temp cart:"
+    pp temp_cart
     k=0
     flag = false
     while k < updated_cart.length do
