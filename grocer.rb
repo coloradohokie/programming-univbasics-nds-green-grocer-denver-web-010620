@@ -13,7 +13,15 @@ def find_item_by_name_in_collection(name, collection)
 end
 
 
-
+def find_match(key, array)
+  i=0
+  while i < array.length do
+    if array[i][:name] == key
+      return true
+    end #if
+  end #while
+  nil
+end
 
 def consolidate_cart(cart)
   # cart is an AoH like this: [index]{:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3}
@@ -23,6 +31,24 @@ def consolidate_cart(cart)
   updated_cart = []
   i=0
   while i < cart.length do
+    if !find_match(cart[i][:name], updated_cart)
+      updated_cart << cart[i]
+      updated_cart.[-1][:count] = 1
+    end #if
+    
+    else
+      k=0
+      while k < updated_cart.length do
+        if updated_cart[k][:name] == cart[i][:name]
+          updated_cart[k][:count] += 1
+        end #if
+        k+=1
+      end #k while
+    end #if/else
+    i+=1
+  end #i while
+  return updated_cart
+end #method
     
 
 
