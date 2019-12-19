@@ -67,36 +67,6 @@ end #method
     
 
 
-=begin  
-  temp_cart = cart 
-  # need to add temp cart because I cannot touch original cart and I need to add the count key to items that don't have it.
-  updated_cart = []
-  i = 0
-  while i < temp_cart.length do
-    if !temp_cart[i][:count]
-      temp_cart[i][:count] = 1
-    end
-    puts "temp cart:"
-    pp temp_cart
-    k=0
-    flag = false
-    while k < updated_cart.length do
-      if temp_cart[i][:item] == updated_cart[k][:item]
-        updated_cart[k][:count] += temp_cart[i][:count]
-        flag = true
-      end # if statement
-      k += 1
-    end # k while loop
-    if flag == false
-      updated_cart << temp_cart[i]
-    end #if statement
-    i += 1
-  end # i while loop
-  return updated_cart
-end #method
-=end  
-
-
 
 def apply_coupons(cart, coupons)
   # This method **should** update cart
@@ -142,7 +112,8 @@ def apply_clearance(cart)
   i=0
   while i < cart.length do
     if cart[i][:clearance] 
-      cart[i][:price] *= (0.8).round(2) # this may not work
+      cart[i][:price] *= (0.8)
+      cart[i][:price].round(2)
     end # if statement
     i += 1
   end # while loop
