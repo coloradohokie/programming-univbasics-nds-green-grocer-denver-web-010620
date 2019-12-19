@@ -49,7 +49,7 @@ def consolidate_cart(cart)
     flag = false
     k=0
     while k < updated_cart.length do
-      if updated_cart[k][:name] == temp_cart[i][:name]
+      if updated_cart[k][:item] == temp_cart[i][:item]
         updated_cart[k][:count] += 1
         flag = true #match found and added
       end #if statement
