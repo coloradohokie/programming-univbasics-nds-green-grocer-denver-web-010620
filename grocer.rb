@@ -119,9 +119,12 @@ def checkout(cart, coupons)
   # desc: consolidate the cart, then apply coupons, then discount the clearance items, then calculate the cart total, including a volume discount if the cart total > 100.
   #return the total after coupons, clearance and volume discount is applied.
   
+  puts "coupons:"
   pp coupons
+  puts "initial cart:"
   pp cart
   updated_cart = consolidate_cart(cart)
+  puts "updated cart:"
   pp updated_cart
   if coupons
     updated_cart = apply_coupons(updated_cart, coupons)
