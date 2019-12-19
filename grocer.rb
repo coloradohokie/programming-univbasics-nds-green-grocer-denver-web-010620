@@ -25,11 +25,7 @@ end
 
 
 def add_count_key(temp_cart)
-    i=0
-  while i < temp_cart.length do
-    temp_cart[i][:count] = 1
-    i+=1
-  end #while
+
   return temp_cart
 end #method
 
@@ -38,8 +34,13 @@ def consolidate_cart(cart)
   # note that :count key may or may not exist. if it doesn't exist, count =1
   # returns and updated cart AoH
   
-
-  temp_cart = add_count_key(cart)
+  temp_cart = cart
+  i=0
+  while i < temp_cart.length do
+    temp_cart[i][:count] = 1
+    i+=1
+  end #while
+  
   updated_cart = []
   i=0
   while i < temp_cart.length do
